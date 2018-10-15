@@ -1,0 +1,60 @@
+#+OPTIONS: toc:nil
+
+* Hillfort
+This is assignment 1 of Mobile App Development module.
+
+*** Application Concept:
+Develop an application supporting an exploration of Hillforts.
+Users are archaeology students.
+App should contain a list of hillforts they have been assigned to visit.
+Users visit site, take photos + notes which augment the information on the hillfort provided by the app.
+
+*** Components
+
+- Opening Screen/Splash Screen :: Suitable Image or Logo appears for a limited period of time
+- Sign up/Login :: Standard signup/login screen, with 2 fields: *Email Address* and *Password*
+- Toolbar :: Context Sensitive Menu Options: *Up*, *Logout*, *Add*, *Cancel*, *Delete*, *Settings*
+- List of Hillforts :: All Hillforts are listed with each having: *Name*, *Single Image*, *Location (Lat/Lng)*, *Visited (checked/unchecked)*
+- Create/Edit Hillfort :: Editting individual Hillforts': *Name*, *Description*, *Up to 4 Images*, *Location (lat/lng) (Selected from map)*, *Visited (checked/unchecked)*, *Date Visited*, *Additional Notes*
+- Settings :: Logged in users can change the following settings: *Email*, *Password*, *Summary Statistics* (Total number of Hillforts, Number visited, etc)
+
+*** Grading
+
+| *Grade Band* | *Components*                    | *Hillfort Features*                   | *Toolbar*           | *Persistence*    | *Git*           |
+|--------------+---------------------------------+---------------------------------------+---------------------+------------------+-----------------|
+| Starter      | - Hillfort List                 | - Name                                | - Cancel            | None             | Single Commit   |
+|              | - Hillfort Edit                 | - Description                         | - Delete            |                  |                 |
+|              |                                 | - Single Images                       |                     |                  |                 |
+|              |                                 | - Location(Lat/Lng) (Select from map) |                     |                  |                 |
+|--------------+---------------------------------+---------------------------------------+---------------------+------------------+-----------------|
+| Baseline     | - Splash Screen                 | - Up to 2 Images                      | - Up                | Placemark (JSON) | Commit History  |
+|              | - Hillfort Create               |                                       | - Add               |                  |                 |
+|--------------+---------------------------------+---------------------------------------+---------------------+------------------+-----------------|
+| Good         | - Signup/Login                  | - Up to 4 Images                      | - Logout            | User (JSON)      | Tagged Releases |
+|              | - Settings(email/password only) | - Visited Checkbox                    | - Settings          |                  |                 |
+|--------------+---------------------------------+---------------------------------------+---------------------+------------------+-----------------|
+| Excellent    | - Settings (with stats)         | - Date Visited                        | - Navigation Drawer | Unified (JSON)   | Branching Model |
+|              |                                 | - Additional notes                    |                     |                  |                 |
+
+*** Completed So Far:
+
+**** Starter
+     The App starts with the list of Hilforts using the card-based layout.
+     The toolbar at the top of the list activity has an *Add* button to add a Hillfort.
+
+     Clicking on a Hillfort card or *Add* button will bring up the Hillfort activity which is used either for editting or creating a new Hillfort,
+     which depends on the context (when editting some buttons change text to indicate so).
+
+     The Hillfort acitivty contains the following:
+     - Title : TextField
+     - Description : TextField
+     - Add/Change Image : Button
+     - Image : ImageView
+     - Set Location : Button
+     - Add/Save Hillfort : Button
+
+     The toolbar in the Hillfort activity contains the *Delete* and *Cancel* buttons.
+
+     There is no persistence implemented thus far.
+
+     
