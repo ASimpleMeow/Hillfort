@@ -11,7 +11,7 @@ class HillfortMemStore: HillfortStore, AnkoLogger {
 
   val hillforts = ArrayList<HillfortModel>()
 
-  override fun findAll(): List<HillfortModel> {
+  override fun findAll(): MutableList<HillfortModel> {
     return hillforts
   }
 
@@ -34,11 +34,7 @@ class HillfortMemStore: HillfortStore, AnkoLogger {
   }
 
   override fun delete(hillfort: HillfortModel) {
-    var foundHillfort: HillfortModel? = hillforts.find { h -> h.id == hillfort.id }
-    if (foundHillfort != null) {
-      hillforts.remove(foundHillfort)
-      logAll()
-    }
+    hillforts.remove(hillfort)
   }
 
   fun logAll(){

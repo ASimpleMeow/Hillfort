@@ -58,3 +58,7 @@ Users visit site, take photos + notes which augment the information on the hillf
      There is no persistence implemented thus far.
 
      
+**** Baseline
+     The create hillfort activity was added in the previous /grade band/ as it was easier then.
+     Persistence of hillforts via JSON file is now possible.
+     
