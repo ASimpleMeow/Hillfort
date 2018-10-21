@@ -2,6 +2,7 @@ package org.wit.hillfort.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
@@ -11,6 +12,9 @@ import org.jetbrains.anko.startActivityForResult
 import org.wit.hillfort.R
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
+import android.support.v4.os.HandlerCompat.postDelayed
+
+
 
 class HillfortListActivity: AppCompatActivity(), HillfortListener {
 

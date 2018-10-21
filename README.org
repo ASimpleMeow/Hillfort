@@ -62,3 +62,15 @@ Users visit site, take photos + notes which augment the information on the hillf
      The create hillfort activity was added in the previous /grade band/ as it was easier then.
      Persistence of hillforts via JSON file is now possible.
      
+***** Splash Screen
+      I went through a few idea on how best to implement a splash screen, like:
+      - Using the launcher theme: Which would basically set the theme of the launcher activity to already contain an image logo, then when the apps loads, switch to the real theme.
+      - Using a dedicated activity for theme switching: Same as above but I would use a splash activity to launch first with the splash theme, then start the main activity.
+      - Using a timer: Loading the splash activity, then after a certain amount of time passes load the main activity.
+      
+      In the end I had to use the last option, for the simple reason that I could not get the launcher theme idea to work, or at least I did not see the splash screen.
+      This could be that since the Hillfort app is not hugely complex or big in size it loads fast enough that the splash screen is not shown.
+      Regardless, I found a very helpfull [[https://android.jlelse.eu/the-complete-android-splash-screen-guide-c7db82bce565][link]] that showed me an improvement that I could use on the timer idea.
+
+      The improvement was to use the app preferences (which are persistent) to store a boolean of whether the app is being launched for the first time, if it is
+      have the time to show the splash screen be big, otherwise small.
