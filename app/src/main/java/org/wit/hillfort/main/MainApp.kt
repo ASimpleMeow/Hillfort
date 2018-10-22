@@ -17,7 +17,6 @@ class MainApp : Application(), AnkoLogger {
     var initialHillforts = ArrayList<HillfortModel>()
     initialHillforts.add(HillfortModel(title = "IR0905 Ballynamona Lower, Waterford",
         description = "A small sub-rectangular area barely projecting E from the mainland at an altitude of 28m OD.",
-        image = "",
         lat = 51.996723,
         lng = -7.583626,
         zoom = 15f))

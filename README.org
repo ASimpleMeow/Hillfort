@@ -75,3 +75,8 @@ Users visit site, take photos + notes which augment the information on the hillf
 
       The improvement was to use the app preferences (which are persistent) to store a boolean of whether the app is being launched for the first time, if it is
       have the time to show the splash screen be big, otherwise small.
+
+****** Images
+       As we are required to be able to contain many images for a hillfort, I decided to use an open source image library called [[http://square.github.io/picasso/][Picass]] (very appropriately named).
+       Using this library and following some guides like [[https://code.tutsplus.com/tutorials/code-an-image-gallery-android-app-with-picasso--cms-30966][this]] one, I made a simple little gallery that would be contained in the hillfort activity when creating/editing.
+       The hillfort list activity's card would only use the first image from the gallery.

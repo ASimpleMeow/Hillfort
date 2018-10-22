@@ -4,6 +4,7 @@
 
     <string name="menu_addHillfort">Add</string>
     <string name="menu_cancelHillfort">Cancel</string>
+    <string name="menu_changeHillfort">Change</string>
     <string name="menu_deleteHillfort">Delete</string>
 
     <string name="hint_hillfortTitle">Hillfort Title</string>
@@ -12,7 +13,6 @@
     <string name="button_addHillfort">Add Hillfort</string>
     <string name="button_saveHillfort">Save Hillfort</string>
     <string name="button_addImage">Add Image</string>
-    <string name="button_changeImage">Change Image</string>
     <string name="button_setLocation">Set Location</string>
 
     <string name="select_hillfort_image">Select Hillfort Image</string>
