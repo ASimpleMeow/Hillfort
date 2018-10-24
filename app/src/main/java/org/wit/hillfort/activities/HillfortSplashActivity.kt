@@ -7,6 +7,7 @@ import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
+import org.jetbrains.anko.intentFor
 import org.wit.hillfort.R
 
 class HillfortSplashActivity: AppCompatActivity() {
@@ -30,7 +31,7 @@ class HillfortSplashActivity: AppCompatActivity() {
   private fun scheduleSplashScreen() {
     val splashScreenDuration = getSplashScreenDuration()
     Handler().postDelayed({
-      startActivity(Intent(this@HillfortSplashActivity, HillfortListActivity::class.java))
+      startActivityForResult(intentFor<HillfortLoginActivity>(), 0)
       finish()
     }, splashScreenDuration)
   }

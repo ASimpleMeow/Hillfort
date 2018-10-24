@@ -13,7 +13,7 @@ import org.wit.hillfort.adapters.HillfortAdapter
 import org.wit.hillfort.adapters.HillfortListener
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.HillfortModel
-
+import kotlin.system.exitProcess
 
 
 class HillfortListActivity: AppCompatActivity(), HillfortListener {
@@ -52,6 +52,12 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     loadHillforts()
     super.onActivityResult(requestCode, resultCode, data)
+  }
+
+  override fun onBackPressed() {
+    super.onBackPressed()
+    moveTaskToBack(true);
+    exitProcess(0)
   }
 
   private fun loadHillforts() {

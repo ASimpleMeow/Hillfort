@@ -22,6 +22,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activities.HillfortLoginActivity">
+        </activity>
+
+        <activity android:name=".activities.HillfortSignupActivity">
+        </activity>
+
         <activity
             android:name=".activities.HillfortListActivity">
         </activity>
