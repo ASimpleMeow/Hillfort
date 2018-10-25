@@ -8,6 +8,7 @@ import android.view.*
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
+import org.jetbrains.anko.toast
 import org.wit.hillfort.R
 import org.wit.hillfort.adapters.HillfortAdapter
 import org.wit.hillfort.adapters.HillfortListener
@@ -49,6 +50,17 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
     startActivityForResult(intentFor<HillfortActivity>().putExtra("hillfort_edit", hillfort), 0)
   }
 
+  override fun onHillfortMenuDeleteClick(hillfort: HillfortModel) {
+    app.hillforts.delete(hillfort)
+    loadHillforts()
+  }
+
+  override fun onHillfortMenuVisitClick(hillfort: HillfortModel) {
+    hillfort.visited = !hillfort.visited
+    app.hillforts.update(hillfort.copy())
+    loadHillforts()
+  }
+
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     loadHillforts()
     super.onActivityResult(requestCode, resultCode, data)
@@ -56,7 +68,7 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
 
   override fun onBackPressed() {
     super.onBackPressed()
-    moveTaskToBack(true);
+    moveTaskToBack(true)
     exitProcess(0)
   }
 

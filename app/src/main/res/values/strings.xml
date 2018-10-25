@@ -36,4 +36,6 @@
     <string name="login_signup">No account? Sign up!</string>
     <string name="login_error">Email Or Password Is Incorrect!</string>
     <string name="login_success">Login Successful</string>
+    <string name="hillfort_card_delete">Delete</string>
+    <string name="hillfort_card_visit">Visit</string>
 </resources>

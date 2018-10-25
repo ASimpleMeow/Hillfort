@@ -85,3 +85,12 @@ Users visit site, take photos + notes which augment the information on the hillf
 **** Good
      Create login and signup activities with UserModel data class, UserStore interface and UserMemStore implementation of UserStore to store users in memory.
      Currently it's possible to create and login with a memory stored user.
+
+****** Visited
+       Although the grading table said to use checkboxes for visited state of the hillfort, I found that using a card sliding menu would be more interesting to use.
+       Sliding the hillfort card in the HillfortList activity to the *Left* would slide a small menu from the right of the card with options like:
+       - Visit
+       - Delete
+       
+       Clicking the *Visit* button would close the little slide menu and colour the hillfort card green, which is more distinct and clear, than using a small checkbox
+       I think. Additionally it allows for more colour in the app which makes it more appealing.

@@ -15,4 +15,5 @@ data class HillfortModel(var id: Long = 0,
                          var images: MutableList<String> = ArrayList(),
                          var lat : Double = 0.0,
                          var lng : Double = 0.0,
-                         var zoom : Float = 0.0f): Parcelable
+                         var zoom : Float = 0.0f,
+                         var visited: Boolean = false): Parcelable
