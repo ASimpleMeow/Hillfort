@@ -20,6 +20,8 @@ class HillfortSignupActivity: AppCompatActivity() {
     setContentView(R.layout.activity_signup)
 
     app = application as MainApp
+    clearFields()
+    input_name.requestFocus()
 
     btn_signup.setOnClickListener{
       signup()

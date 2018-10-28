@@ -85,7 +85,8 @@ Users visit site, take photos + notes which augment the information on the hillf
 **** Good
      Create login and signup activities with UserModel data class, UserStore interface and UserMemStore implementation of UserStore to store users in memory.
      Currently it's possible to create and login with a memory stored user.
-     Users are now persistent with their own JSON file, there is also a default hard coded user (for testing) *Username:* /ok@ok.com/ and *Password:* /123/
+     Users are now persistent with their own JSON file, there is also a default hard coded user (for testing) *Username:* /ok@ok.com/ and *Password:* /123/.
+     Create toolbar options menu of *Logout* and *Setting*, and be able to logout through that menu.
 
 ****** Visited
        Although the grading table said to use checkboxes for visited state of the hillfort, I found that using a card sliding menu would be more interesting to use.

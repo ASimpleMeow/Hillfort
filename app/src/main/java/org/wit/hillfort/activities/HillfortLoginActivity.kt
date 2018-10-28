@@ -1,5 +1,6 @@
 package org.wit.hillfort.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -27,6 +28,11 @@ class HillfortLoginActivity: AppCompatActivity() {
     link_signup.setOnClickListener{
       startActivityForResult(intentFor<HillfortSignupActivity>(),0)
     }
+  }
+
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    input_email.requestFocus()
+    super.onActivityResult(requestCode, resultCode, data)
   }
 
   fun login(){

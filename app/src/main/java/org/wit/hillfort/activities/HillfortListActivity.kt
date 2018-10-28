@@ -42,6 +42,17 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
   override fun onOptionsItemSelected(item: MenuItem?): Boolean {
     when (item?.itemId) {
       R.id.item_add -> startActivityForResult<HillfortActivity>(0)
+
+      R.id.item_logout -> {
+        toast(R.string.logout_success)
+        setResult(AppCompatActivity.RESULT_OK)
+        finish()
+      }
+
+      R.id.item_settings -> {
+        toast("Settings not available yet...")
+      }
+
     }
     return super.onOptionsItemSelected(item)
   }

@@ -6,6 +6,8 @@
     <string name="menu_cancelHillfort">Cancel</string>
     <string name="menu_changeHillfort">Change</string>
     <string name="menu_deleteHillfort">Delete</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_settings">Settings</string>
 
     <string name="hint_hillfortTitle">Hillfort Title</string>
     <string name="hint_hillfortDescription">Description </string>
@@ -31,11 +33,15 @@
     <string name="signup_error_password">Password Cannot Be Empty And Must Be Long Enough!</string>
     <string name="signup_error_repassword">Passwords Do Not Match!</string>
     <string name="signup_success">Signup Success!</string>
+
     <string name="login_title">Hillfort Login</string>
     <string name="login">Login</string>
     <string name="login_signup">No account? Sign up!</string>
     <string name="login_error">Email Or Password Is Incorrect!</string>
     <string name="login_success">Login Successful</string>
+    <string name="logout_success">Logout Successful</string>
+
     <string name="hillfort_card_delete">Delete</string>
     <string name="hillfort_card_visit">Visit</string>
+
 </resources>
