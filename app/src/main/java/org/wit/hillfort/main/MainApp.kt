@@ -20,7 +20,13 @@ class MainApp : Application(), AnkoLogger {
         lng = -7.583626,
         zoom = 15f))
 
-    users = UserMemStore()
+    var initialUsers = ArrayList<UserModel>()
+    initialUsers.add(UserModel(name="OK",
+        email="ok@ok.com",
+        phone = "0123456789",
+        passwordHash = "A665A45920422F9D417E4867EFDC4FB8A04A1F3FFF1FA07E998E86F7F7A27AE3")) //password: 123
+
+    users = UserJSONStore(applicationContext, initialUsers)
     hillforts = HillfortJSONStore(applicationContext, initialHillforts)
     info("Hillfort started")
   }
