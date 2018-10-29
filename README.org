@@ -97,4 +97,7 @@ Users visit site, take photos + notes which augment the information on the hillf
        Clicking the *Visit* button would close the little slide menu and colour the hillfort card green, which is more distinct and clear, than using a small checkbox
        I think. Additionally it allows for more colour in the app which makes it more appealing.
 
-       
+****** Settings
+       By extending the PreferenceFragment class, I used the sharedPreferences to store data for the settings. Currently the settings can do the following:
+       - Change email of the currently logged in user
+       - Change the password of the currently logged in user

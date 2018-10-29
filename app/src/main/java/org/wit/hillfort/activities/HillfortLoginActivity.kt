@@ -49,6 +49,7 @@ class HillfortLoginActivity: AppCompatActivity() {
 
     toast(R.string.login_success)
     clearFields()
+    app.currentUser = userFound
     startActivityForResult(intentFor<HillfortListActivity>(), 0)
   }
 

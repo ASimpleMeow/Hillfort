@@ -50,7 +50,7 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
       }
 
       R.id.item_settings -> {
-        toast("Settings not available yet...")
+        startActivityForResult<HillfortSettingsActivity>(0)
       }
 
     }

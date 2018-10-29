@@ -2,6 +2,9 @@
     <string name="app_name">Hillfort</string>
     <string name="title_activity_maps">Map</string>
 
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
     <string name="menu_addHillfort">Add</string>
     <string name="menu_cancelHillfort">Cancel</string>
     <string name="menu_changeHillfort">Change</string>
@@ -43,5 +46,10 @@
 
     <string name="hillfort_card_delete">Delete</string>
     <string name="hillfort_card_visit">Visit</string>
+
+    <string name="settings_email_summary">Change your login email</string>
+    <string name="settings_email">Change Email</string>
+    <string name="settings_password">Change Password</string>
+    <string name="settings_password_summary">Change your login password</string>
 
 </resources>

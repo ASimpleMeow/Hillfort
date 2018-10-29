@@ -33,6 +33,14 @@
         </activity>
 
         <activity
+            android:name=".activities.HillfortSettingsActivity"
+            android:parentActivityName=".activities.HillfortListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.HillfortListActivity" />
+        </activity>
+
+        <activity
             android:name=".activities.HillfortActivity"
             android:parentActivityName=".activities.HillfortListActivity">
             <meta-data
