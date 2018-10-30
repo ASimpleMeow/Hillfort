@@ -110,6 +110,8 @@ Users visit site, take photos + notes which augment the information on the hillf
      Image can now be viewed in fullscreen from the Hillfort Activity gallery by clicking on them. This will open a full view of the image where the toolbar options
      allow for deletion or changing the image.
 
+     Stats are now displayed in the settings activity in their own category - Hillforts visitied and Hillforts total.
+
 ****** Unified JSON
        For the unified JSON I decided that's it's more intuative to have and array list of hillforts in the user model class.
        This way when a user logs in only their hillforts will be displayed in the Hillfort List Activity.

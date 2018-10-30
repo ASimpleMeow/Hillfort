@@ -32,6 +32,11 @@ class HillfortSettingsActivity: AppCompatActivity(), AnkoLogger {
     sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
     sharedPrefs.edit().clear().apply()
 
+    val visited = app.currentUser.hillforts.filter { it.visited }.size
+    val total = app.currentUser.hillforts.size
+
+    sharedPrefs.edit().putInt("pref_stats_visited", visited).putInt("pref_stats_total", total).apply()
+
     supportFragmentManager.beginTransaction()
         .add(R.id.settings_fragment_container, HillfortSettingsFragment())
         .commit()

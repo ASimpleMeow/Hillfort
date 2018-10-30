@@ -52,5 +52,9 @@
     <string name="settings_email">Change Email</string>
     <string name="settings_password">Change Password</string>
     <string name="settings_password_summary">Change your login password</string>
+    <string name="settings_cat_user">User Settings</string>
+    <string name="settings_cat_hillforts">Hillforts Stats</string>
+    <string name="settings_stats_visited">Visited Hillforts</string>
+    <string name="settings_stats_total">Total Hillforts</string>
 
 </resources>
