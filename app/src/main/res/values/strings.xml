@@ -14,6 +14,7 @@
 
     <string name="hint_hillfortTitle">Hillfort Title</string>
     <string name="hint_hillfortDescription">Description </string>
+    <string name="hint_hillfortNotes">Additional Notes</string>
 
     <string name="button_addHillfort">Add Hillfort</string>
     <string name="button_saveHillfort">Save Hillfort</string>

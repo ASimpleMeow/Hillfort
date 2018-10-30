@@ -64,6 +64,47 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"/>
 
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:hint="@string/hint_hillfortNotes"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:maxLines="6"
+                    android:scrollbars="vertical"
+                    android:padding="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/visited_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hillfort_card_visit"
+                        android:textSize="18sp"
+                        android:layout_centerVertical="true"/>
+
+                    <CheckBox
+                        android:id="@+id/visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/visited_label"/>
+                </RelativeLayout>
+
+                <DatePicker
+                    android:id="@+id/date_visited"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:datePickerMode="spinner"
+                    android:layout_gravity="center"
+                    android:calendarViewShown="false"/>
+
                 <Button
                     android:id="@+id/chooseImage"
                     android:layout_width="match_parent"
