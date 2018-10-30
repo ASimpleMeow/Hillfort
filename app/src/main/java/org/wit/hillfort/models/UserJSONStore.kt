@@ -20,12 +20,15 @@ class UserJSONStore: UserStore, AnkoLogger {
   val context: Context
   var users = mutableListOf<UserModel>()
 
-  constructor(context: Context, initialUsers: List<UserModel>){
+  constructor(context: Context, initialUsers: List<UserModel>, initialHillforts: List<HillfortModel>){
     this.context = context
     if (exists(context, JSON_USERS_FILE)){
       deserialize()
     } else {
-      initialUsers.forEach { create(it.copy()) }
+      initialUsers.forEach {
+        it.hillforts = ArrayList(initialHillforts)
+        create(it.copy())
+      }
     }
   }
 
@@ -46,6 +49,7 @@ class UserJSONStore: UserStore, AnkoLogger {
       foundUser.email = user.email
       foundUser.phone = user.phone
       foundUser.passwordHash = user.passwordHash
+      foundUser.hillforts = ArrayList(user.hillforts)
       serialize()
       logAll()
     }
@@ -58,6 +62,7 @@ class UserJSONStore: UserStore, AnkoLogger {
 
   private fun serialize(){
     val jsonString = gsonBuilder.toJson(users, usersListType)
+    info(jsonString)
     write(context, JSON_USERS_FILE, jsonString)
   }
 

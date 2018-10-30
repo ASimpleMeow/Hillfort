@@ -24,6 +24,7 @@ class UserMemStore: UserStore {
       foundUser.email = user.email
       foundUser.phone = user.phone
       foundUser.passwordHash = user.passwordHash
+      foundUser.hillforts = ArrayList(user.hillforts)
     }
   }
 

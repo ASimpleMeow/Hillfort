@@ -7,7 +7,7 @@ import org.wit.hillfort.models.*
 
 class MainApp : Application(), AnkoLogger {
 
-  lateinit var hillforts: HillfortStore
+  //lateinit var hillforts: HillfortStore
   lateinit var users: UserStore
   lateinit var currentUser: UserModel
 
@@ -27,8 +27,8 @@ class MainApp : Application(), AnkoLogger {
         phone = "0123456789",
         passwordHash = "A665A45920422F9D417E4867EFDC4FB8A04A1F3FFF1FA07E998E86F7F7A27AE3")) //password: 123
 
-    users = UserJSONStore(applicationContext, initialUsers)
-    hillforts = HillfortJSONStore(applicationContext, initialHillforts)
+    users = UserJSONStore(applicationContext, initialUsers, initialHillforts)
+    //hillforts = HillfortJSONStore(applicationContext, initialHillforts)
     info("Hillfort started")
   }
 }

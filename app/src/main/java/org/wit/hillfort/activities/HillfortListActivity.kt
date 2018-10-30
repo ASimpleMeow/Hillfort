@@ -91,13 +91,16 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
   }
 
   override fun onHillfortMenuDeleteClick(hillfort: HillfortModel) {
-    app.hillforts.delete(hillfort)
+    app.currentUser.hillforts.remove(hillfort)
+    app.users.update(app.currentUser.copy())
     loadHillforts()
   }
 
   override fun onHillfortMenuVisitClick(hillfort: HillfortModel) {
     hillfort.visited = !hillfort.visited
-    app.hillforts.update(hillfort.copy())
+    val index = app.currentUser.hillforts.indexOf(app.currentUser.hillforts.find { h -> h.id == hillfort.id })
+    app.currentUser.hillforts[index] = hillfort.copy()
+    app.users.update(app.currentUser.copy())
     loadHillforts()
   }
 
@@ -114,7 +117,7 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
   }
 
   private fun loadHillforts() {
-    showHillforts(app.hillforts.findAll())
+    showHillforts(app.currentUser.hillforts)
   }
 
   fun showHillforts (hillforts: List<HillfortModel>) {

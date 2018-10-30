@@ -79,8 +79,15 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger, HillfortImageListener 
 
       if (hillfort.title.isEmpty()) toast(R.string.enter_hillfort_title)
       else {
-        if (edit) app.hillforts.update(hillfort.copy())
-        else app.hillforts.create(hillfort.copy())
+        if (edit){
+          val index = app.currentUser.hillforts.indexOf(app.currentUser.hillforts.find { h -> h.id == hillfort.id })
+          app.currentUser.hillforts[index]= hillfort.copy()
+          app.users.update(app.currentUser.copy())
+        }
+        else{
+          app.currentUser.hillforts.add(hillfort.copy())
+          app.users.update(app.currentUser.copy())
+        }
         setResult(AppCompatActivity.RESULT_OK)
         finish()
       }
@@ -102,8 +109,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger, HillfortImageListener 
         finish()
       }
       R.id.item_delete -> {
-        app.hillforts.update(hillfort.copy())
-        app.hillforts.delete(hillfort)
+        val index = app.currentUser.hillforts.indexOf(app.currentUser.hillforts.find { h -> h.id == hillfort.id })
+        app.currentUser.hillforts[index]= hillfort.copy()
+        app.currentUser.hillforts.removeAt(index)
+        app.users.update(app.currentUser.copy())
         finish()
       }
     }

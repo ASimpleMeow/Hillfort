@@ -8,4 +8,5 @@ data class UserModel(var id: Long = 0,
                      var name: String ="",
                      var email: String="",
                      var phone: String="",
-                     var passwordHash: String=""): Parcelable
+                     var passwordHash: String="",
+                     var hillforts: MutableList<HillfortModel> = ArrayList()): Parcelable
