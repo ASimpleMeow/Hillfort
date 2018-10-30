@@ -101,3 +101,6 @@ Users visit site, take photos + notes which augment the information on the hillf
        By extending the PreferenceFragment class, I used the sharedPreferences to store data for the settings. Currently the settings can do the following:
        - Change email of the currently logged in user
        - Change the password of the currently logged in user
+
+**** Excellent
+     Implemented the Navigation Drawer with Settings and Logout items. The current logged in users' name and email is displayed at the top of the navigation drawer.

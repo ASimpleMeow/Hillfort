@@ -2,13 +2,19 @@ package org.wit.hillfort.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.NavigationView
+import android.support.v4.view.GravityCompat
+import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
+import kotlinx.android.synthetic.main.drawer_header.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
+import org.w3c.dom.Text
 import org.wit.hillfort.R
 import org.wit.hillfort.adapters.HillfortAdapter
 import org.wit.hillfort.adapters.HillfortListener
@@ -20,14 +26,32 @@ import kotlin.system.exitProcess
 class HillfortListActivity: AppCompatActivity(), HillfortListener {
 
   lateinit var app: MainApp
+  private lateinit var drawerLayout: DrawerLayout
+  private lateinit var navView: NavigationView
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_hillfort_list)
     app = application as MainApp
+    drawerLayout = findViewById(R.id.drawer_layout)
 
     toolbarMain.title = title
     setSupportActionBar(toolbarMain)
+    supportActionBar?.apply {
+      setDisplayHomeAsUpEnabled(true)
+      setHomeAsUpIndicator(R.drawable.ic_menu)
+    }
+
+    navView = findViewById<NavigationView>(R.id.hillfort_nav_view)
+
+    navView.setNavigationItemSelectedListener { menuItem ->
+      onOptionsItemSelected(menuItem)
+      drawerLayout.closeDrawers()
+      true
+    }
+
+    navView.getHeaderView(0).findViewById<TextView>(R.id.drawer_user_name).text = app.currentUser.name
+    navView.getHeaderView(0).findViewById<TextView>(R.id.drawer_user_email).text = app.currentUser.email
 
     val layoutManager = LinearLayoutManager(this)
     recyclerView.layoutManager = layoutManager
@@ -53,6 +77,11 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
         startActivityForResult<HillfortSettingsActivity>(0)
       }
 
+      android.R.id.home -> {
+        drawerLayout.openDrawer(GravityCompat.START)
+        true
+      }
+
     }
     return super.onOptionsItemSelected(item)
   }
@@ -74,6 +103,7 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     loadHillforts()
+    navView.getHeaderView(0).findViewById<TextView>(R.id.drawer_user_email).text = app.currentUser.email
     super.onActivityResult(requestCode, resultCode, data)
   }
 

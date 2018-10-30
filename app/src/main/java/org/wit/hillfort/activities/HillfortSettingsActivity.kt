@@ -7,6 +7,7 @@ import android.support.v7.preference.EditTextPreference
 import android.support.v7.preference.Preference
 import android.support.v7.preference.PreferenceFragmentCompat
 import android.support.v7.preference.PreferenceManager
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_hillfort_settings.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -36,13 +37,20 @@ class HillfortSettingsActivity: AppCompatActivity(), AnkoLogger {
         .commit()
   }
 
+  override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    when(item?.itemId){
+      android.R.id.home -> onBackPressed()
+    }
+    return super.onOptionsItemSelected(item)
+  }
+
   override fun onBackPressed() {
     val newEmail = sharedPrefs.getString("pref_user_email", "")
     val newPasswordHash = sharedPrefs.getString("pref_user_password", "")
 
     if (newEmail.isNotEmpty()) app.currentUser.email = newEmail
     if (newPasswordHash.isNotEmpty()) app.currentUser.passwordHash = newPasswordHash
-    app.users.update(app.currentUser)
+    app.users.update(app.currentUser.copy())
 
     super.onBackPressed()
   }
