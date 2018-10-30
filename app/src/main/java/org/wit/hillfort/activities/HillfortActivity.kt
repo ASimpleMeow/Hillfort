@@ -129,6 +129,11 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger, HillfortImageListener 
       }
       IMAGE_GALLERY_REQUEST -> {
         if (data != null){
+          val image = data.extras.getString("image")
+          val original = data.extras.getString("original")
+          if (image.isEmpty()) hillfort.images.remove(original)
+          else hillfort.images.set(hillfort.images.indexOf(original), image)
+          loadHillfortImages()
         }
       }
     }
