@@ -26,6 +26,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger, HillfortImageListener 
   val LOCATION_REQUEST = 3
 
   var hillfort = HillfortModel()
+  var edit = false
   lateinit var app : MainApp
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +41,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger, HillfortImageListener 
     val layoutManager = GridLayoutManager(this,2)
     hillfortImageGallery.layoutManager = layoutManager
 
-    var edit = false
     if (intent.hasExtra("hillfort_edit")){
       edit = true
       hillfort = intent.extras.getParcelable<HillfortModel>("hillfort_edit")
@@ -101,6 +101,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger, HillfortImageListener 
 
   override fun onCreateOptionsMenu(menu: Menu?): Boolean {
     menuInflater.inflate(R.menu.menu_hillfort, menu)
+    if (edit && menu != null) menu.getItem(0).isVisible = true
     return super.onCreateOptionsMenu(menu)
   }
 

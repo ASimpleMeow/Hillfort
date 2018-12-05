@@ -36,7 +36,7 @@ Users visit site, take photos + notes which augment the information on the hillf
 | Excellent    | - Settings (with stats)         | - Date Visited                        | - Navigation Drawer | Unified (JSON)   | Branching Model |
 |              |                                 | - Additional notes                    |                     |                  |                 |
 
-*** Completed So Far:
+*** Version 1:
 
 **** Starter
      The App starts with the list of Hilforts using the card-based layout.
@@ -115,3 +115,5 @@ Users visit site, take photos + notes which augment the information on the hillf
 ****** Unified JSON
        For the unified JSON I decided that's it's more intuative to have and array list of hillforts in the user model class.
        This way when a user logs in only their hillforts will be displayed in the Hillfort List Activity.
+
+*** Version 2:

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Hillfort</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_hillfort_maps">Map of All Hillforts</string>
 
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
@@ -9,6 +10,7 @@
     <string name="menu_cancelHillfort">Cancel</string>
     <string name="menu_changeHillfort">Change</string>
     <string name="menu_deleteHillfort">Delete</string>
+    <string name="menu_map_view">Map View</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_settings">Settings</string>
 

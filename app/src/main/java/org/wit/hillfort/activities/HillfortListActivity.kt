@@ -12,6 +12,7 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import kotlinx.android.synthetic.main.drawer_header.*
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
 import org.w3c.dom.Text
@@ -67,15 +68,15 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
     when (item?.itemId) {
       R.id.item_add -> startActivityForResult<HillfortActivity>(0)
 
+      R.id.item_map -> startActivity<HillfortMapsActivity>()
+
       R.id.item_logout -> {
         toast(R.string.logout_success)
         setResult(AppCompatActivity.RESULT_OK)
         finish()
       }
 
-      R.id.item_settings -> {
-        startActivityForResult<HillfortSettingsActivity>(0)
-      }
+      R.id.item_settings -> startActivityForResult<HillfortSettingsActivity>(0)
 
       android.R.id.home -> {
         drawerLayout.openDrawer(GravityCompat.START)
