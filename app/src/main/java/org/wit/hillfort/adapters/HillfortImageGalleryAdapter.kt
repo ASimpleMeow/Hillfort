@@ -1,6 +1,6 @@
 package org.wit.hillfort.adapters
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ interface HillfortImageListener{
 }
 
 class HillfortImageGalleryAdapter constructor(private val images: List<String>, private val listener: HillfortImageListener)
-  : RecyclerView.Adapter<HillfortImageGalleryAdapter.ImageHolder>() {
+  : androidx.recyclerview.widget.RecyclerView.Adapter<HillfortImageGalleryAdapter.ImageHolder>() {
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageHolder {
     return ImageHolder(LayoutInflater.from(parent?.context).inflate(R.layout.image_hillfort, parent, false))
@@ -26,7 +26,7 @@ class HillfortImageGalleryAdapter constructor(private val images: List<String>, 
 
   override fun getItemCount(): Int = images.size
 
-  class ImageHolder constructor(itemView: View): RecyclerView.ViewHolder(itemView){
+  class ImageHolder constructor(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
 
     fun bind(image: String, listener: HillfortImageListener){
       var imageView: ImageView = itemView.findViewById(R.id.hillfortImage)

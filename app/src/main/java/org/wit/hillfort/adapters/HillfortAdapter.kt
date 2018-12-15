@@ -1,6 +1,6 @@
 package org.wit.hillfort.adapters
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +22,7 @@ interface HillfortListener {
 }
 
 class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
-                                  private val listener: HillfortListener): RecyclerView.Adapter<HillfortAdapter.MainHolder>() {
+                                  private val listener: HillfortListener): androidx.recyclerview.widget.RecyclerView.Adapter<HillfortAdapter.MainHolder>() {
 
   private val viewBinderHelper = ViewBinderHelper()
 
@@ -38,7 +38,7 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
 
   override fun getItemCount(): Int = hillforts.size
 
-  class MainHolder constructor(itemView: View): RecyclerView.ViewHolder(itemView){
+  class MainHolder constructor(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
 
     fun bind(hillfort: HillfortModel, listener: HillfortListener){
       val df = DecimalFormat("#.###")

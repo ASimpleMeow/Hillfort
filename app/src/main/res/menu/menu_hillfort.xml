@@ -14,4 +14,10 @@
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
         android:title="@string/menu_cancelHillfort"
         app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/item_save"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/menu_saveHillfort"
+        app:showAsAction="always"/>
 </menu>

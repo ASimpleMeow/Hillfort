@@ -2,11 +2,11 @@ package org.wit.hillfort.activities
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.preference.EditTextPreference
-import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceFragmentCompat
-import android.support.v7.preference.PreferenceManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.EditTextPreference
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_hillfort_settings.*
 import org.jetbrains.anko.AnkoLogger

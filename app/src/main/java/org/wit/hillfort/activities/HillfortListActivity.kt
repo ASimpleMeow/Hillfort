@@ -2,11 +2,11 @@ package org.wit.hillfort.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import com.google.android.material.navigation.NavigationView
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.*
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
@@ -27,7 +27,7 @@ import kotlin.system.exitProcess
 class HillfortListActivity: AppCompatActivity(), HillfortListener {
 
   lateinit var app: MainApp
-  private lateinit var drawerLayout: DrawerLayout
+  private lateinit var drawerLayout: androidx.drawerlayout.widget.DrawerLayout
   private lateinit var navView: NavigationView
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class HillfortListActivity: AppCompatActivity(), HillfortListener {
     navView.getHeaderView(0).findViewById<TextView>(R.id.drawer_user_name).text = app.currentUser.name
     navView.getHeaderView(0).findViewById<TextView>(R.id.drawer_user_email).text = app.currentUser.email
 
-    val layoutManager = LinearLayoutManager(this)
+    val layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
     recyclerView.layoutManager = layoutManager
     loadHillforts()
   }
