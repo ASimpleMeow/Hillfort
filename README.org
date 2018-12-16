@@ -27,7 +27,7 @@ Users visit site, take photos + notes which augment the information on the hillf
 |              |                                 | - Single Images                       |                     |                  |                 |
 |              |                                 | - Location(Lat/Lng) (Select from map) |                     |                  |                 |
 |--------------+---------------------------------+---------------------------------------+---------------------+------------------+-----------------|
-| Baseline     | - Splash Screen                 | - Up to 2 Images                      | - Up                | Placemark (JSON) | Commit History  |
+| Baseline     | - Splash Screen                 | - Up to 2 Images                      | - Up                | hillfort (JSON) | Commit History  |
 |              | - Hillfort Create               |                                       | - Add               |                  |                 |
 |--------------+---------------------------------+---------------------------------------+---------------------+------------------+-----------------|
 | Good         | - Signup/Login                  | - Up to 4 Images                      | - Logout            | User (JSON)      | Tagged Releases |

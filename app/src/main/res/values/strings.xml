@@ -1,63 +1,40 @@
 <resources>
-    <string name="app_name">Hillfort</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="title_activity_hillfort_maps">Map of All Hillforts</string>
+  <string name="app_name">Hillfort</string>
+  <string name="title_activity_hillfort_maps">Map of All Hillforts </string>
+  <string name="title_activity_maps">Map</string>
+  <string name="title_activity_hillfort_list">Hillforts</string>
+  <string name="title_activity_hillfort">Hillfort</string>
+  <string name="title_activity_edit_location">Hillfort</string>
+  <string name="title_activity_login"> Signup/Login to Hillfort</string>
 
-    <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
+  <string name="hint_hillfortTitle">Hillfort Title</string>
+  <string name="hint_hillfortDescription">Hillfort Description</string>
 
-    <string name="menu_addHillfort">Add</string>
-    <string name="menu_cancelHillfort">Cancel</string>
-    <string name="menu_changeHillfort">Change</string>
-    <string name="menu_deleteHillfort">Delete</string>
-    <string name="menu_map_view">Map View</string>
-    <string name="menu_logout">Logout</string>
-    <string name="menu_settings">Settings</string>
+  <string name="menu_addHillfort">Add</string>
+  <string name="menu_cancelHillfort">Cancel</string>
+  <string name="menu_deleteHillfort">Delete</string>
+  <string name="menu_saveHillfort">Save</string>
+  <string name="menu_showMap">Show Map</string>
+  <string name="menu_logout">Logout</string>
 
-    <string name="hint_hillfortTitle">Hillfort Title</string>
-    <string name="hint_hillfortDescription">Description </string>
-    <string name="hint_hillfortNotes">Additional Notes</string>
+  <string name="settings_email_summary">Change your login email</string>
+  <string name="settings_email">Change Email</string>
+  <string name="settings_password">Change Password</string>
+  <string name="settings_password_summary">Change your login password</string>
+  <string name="settings_cat_user">User Settings</string>
+  <string name="settings_cat_hillforts">Hillforts Stats</string>
+  <string name="settings_stats_visited">Visited Hillforts</string>
+  <string name="settings_stats_total">Total Hillforts</string>
 
-    <string name="button_addHillfort">Add Hillfort</string>
-    <string name="button_saveHillfort">Save Hillfort</string>
-    <string name="button_addImage">Add Image</string>
-    <string name="button_setLocation">Set Location</string>
+  <string name="toast_enterTitle">Please Enter A Title</string>
+  <string name="toast_hillfortAdded">Hillfort Added Successfully</string>
+  <string name="toast_hillfortSaved">Hillfort Saved Successfully</string>
 
-    <string name="select_hillfort_image">Select Hillfort Image</string>
-    <string name="enter_hillfort_title">Please Enter A Hillfort Title</string>
-
-    <string name="signup_title">Hillfort Sign Up</string>
-    <string name="signup_name">Full Name</string>
-    <string name="signup_email">Email</string>
-    <string name="signup_phone">Mobile Number</string>
-    <string name="signup_password">Password</string>
-    <string name="signup_repassword">Re-Enter Password</string>
-    <string name="signup_create">Create Account</string>
-    <string name="signup_error_name">Name Field Cannot Be Empty!</string>
-    <string name="signup_error_email">Email Field Cannot Be Empty And Must Be Valid!</string>
-    <string name="signup_error_mobile">Mobile Number Cannot Be Empty And Must Be Over 10 Digits!</string>
-    <string name="signup_error_password">Password Cannot Be Empty And Must Be Long Enough!</string>
-    <string name="signup_error_repassword">Passwords Do Not Match!</string>
-    <string name="signup_success">Signup Success!</string>
-
-    <string name="login_title">Hillfort Login</string>
-    <string name="login">Login</string>
-    <string name="login_signup">No account? Sign up!</string>
-    <string name="login_error">Email Or Password Is Incorrect!</string>
-    <string name="login_success">Login Successful</string>
-    <string name="logout_success">Logout Successful</string>
-
-    <string name="hillfort_card_delete">Delete</string>
-    <string name="hillfort_card_visit">Visit</string>
-
-    <string name="settings_email_summary">Change your login email</string>
-    <string name="settings_email">Change Email</string>
-    <string name="settings_password">Change Password</string>
-    <string name="settings_password_summary">Change your login password</string>
-    <string name="settings_cat_user">User Settings</string>
-    <string name="settings_cat_hillforts">Hillforts Stats</string>
-    <string name="settings_stats_visited">Visited Hillforts</string>
-    <string name="settings_stats_total">Total Hillforts</string>
-    <string name="menu_saveHillfort">Save</string>
-
+  <string name="button_addImage"> Add hillfort Image </string>
+  <string name="button_changeImage"> Change hillfort Image </string>
+  <string name="button_location">Set Location</string>
+  <string name="button_addHillfort">Add Hillfort</string>
+  <string name="button_saveHillfort">Save Hillfort</string>
+  <string name="label_lat">Lat:</string>
+  <string name="label_lng">Lng:</string>
 </resources>

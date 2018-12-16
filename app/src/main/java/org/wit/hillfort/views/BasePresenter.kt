@@ -3,7 +3,7 @@ package org.wit.hillfort.views
 import android.content.Intent
 import org.wit.hillfort.main.MainApp
 
-open class BasePresenter(var view: BaseView?){
+open class BasePresenter(var view: BaseView?) {
 
   var app: MainApp = view?.application as MainApp
 

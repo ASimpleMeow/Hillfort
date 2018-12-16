@@ -4,23 +4,20 @@ import android.content.Intent
 import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.AnkoLogger
 import org.wit.hillfort.models.HillfortModel
+import org.wit.hillfort.views.login.LoginView
 import org.wit.hillfort.views.editlocation.EditLocationView
+import org.wit.hillfort.views.map.HillfortMapView
 import org.wit.hillfort.views.hillfort.HillfortView
 import org.wit.hillfort.views.hillfortlist.HillfortListView
-import org.wit.hillfort.views.image.ImageView
-import org.wit.hillfort.views.login.LoginView
-import org.wit.hillfort.views.map.HillfortMapView
-import org.wit.hillfort.views.settings.SettingsView
-import org.wit.hillfort.views.signup.SignupView
 
 val IMAGE_REQUEST = 1
 val LOCATION_REQUEST = 2
-val IMAGE_GALLERY_REQUEST = 3
 
 enum class VIEW {
-  LOCATION, HILLFORT, IMAGE, MAPS, LIST, SETTINGS, LOGIN, SIGNUP
+  LOCATION, PLACEMARK, MAPS, LIST, LOGIN
 }
 
 open class BaseView: AppCompatActivity(), AnkoLogger {
@@ -31,13 +28,10 @@ open class BaseView: AppCompatActivity(), AnkoLogger {
     var intent = Intent(this, HillfortListView::class.java)
     when (view){
       VIEW.LOCATION -> intent = Intent(this, EditLocationView::class.java)
-      VIEW.HILLFORT -> intent = Intent(this, HillfortView::class.java)
-      VIEW.IMAGE -> intent = Intent(this, ImageView::class.java)
+      VIEW.PLACEMARK -> intent = Intent(this, HillfortView::class.java)
       VIEW.MAPS -> intent = Intent(this, HillfortMapView::class.java)
       VIEW.LIST -> intent = Intent(this, HillfortListView::class.java)
-      VIEW.SETTINGS -> intent = Intent(this, SettingsView::class.java)
       VIEW.LOGIN -> intent = Intent(this, LoginView::class.java)
-      VIEW.SIGNUP -> intent = Intent(this, SignupView::class.java)
     }
 
     if (key != ""){
@@ -55,10 +49,10 @@ open class BaseView: AppCompatActivity(), AnkoLogger {
     toolbar.title = title
     setSupportActionBar(toolbar)
     supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
-    /*var user = FirebaseAuth.getInstance().currentUser
+    var user = FirebaseAuth.getInstance().currentUser
     if (user != null){
       toolbar.title = "${title}: ${user.email}"
-    }*/
+    }
   }
 
   override fun onDestroy(){
@@ -75,8 +69,9 @@ open class BaseView: AppCompatActivity(), AnkoLogger {
     basePresenter?.doRequestPermissionsResult(requestCode, permissions, grantResults)
   }
 
-  open fun showPlacemark(placemark: HillfortModel) {}
-  open fun showPlacemarks(placemarks: List<HillfortModel>) {}
+  open fun showHillfort(hillfort: HillfortModel) {}
+  open fun showHillforts(hillforts: List<HillfortModel>) {}
   open fun showProgress() {}
   open fun hideProgress() {}
+
 }
