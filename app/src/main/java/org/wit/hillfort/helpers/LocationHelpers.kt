@@ -6,6 +6,7 @@ import android.app.Activity
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import android.util.Log
+import com.google.android.gms.location.LocationRequest
 
 val REQUEST_PERMISSIONS_REQUEST_CODE = 34
 
@@ -33,7 +34,7 @@ fun isPermissionGranted(code: Int, grantResults: IntArray): Boolean{
   return  permissionGranted
 }
 
-/*@SuppressLint("RestrictedApi")
+@SuppressLint("RestrictedApi")
 fun createDefaultLocationRequest() : LocationRequest {
   val locationRequest = LocationRequest().apply {
     interval = 10000
@@ -41,4 +42,4 @@ fun createDefaultLocationRequest() : LocationRequest {
     priority = LocationRequest.PRIORITY_HIGH_ACCURACY
   }
   return locationRequest
-}*/
+}

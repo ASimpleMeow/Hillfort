@@ -11,7 +11,7 @@ import org.wit.hillfort.R
 interface HillfortImageListener{
   fun onImageClick(image: String)
 }
-
+/*
 class HillfortImageGalleryAdapter constructor(private val images: List<String>, private val listener: HillfortImageListener)
   : androidx.recyclerview.widget.RecyclerView.Adapter<HillfortImageGalleryAdapter.ImageHolder>() {
 
@@ -37,4 +37,4 @@ class HillfortImageGalleryAdapter constructor(private val images: List<String>, 
       itemView.setOnClickListener{ listener.onImageClick(image) }
     }
   }
-}
+}*/

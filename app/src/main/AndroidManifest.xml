@@ -12,45 +12,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".activities.HillfortSplashActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+        <activity android:name=".views.login.LoginView"
+            android:label="@string/title_activity_login"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.HillfortLoginActivity"></activity>
-        <activity android:name=".activities.HillfortSignupActivity"></activity>
-        <activity android:name=".activities.HillfortListActivity"></activity>
-        <activity
-            android:name=".activities.HillfortSettingsActivity"
-            android:parentActivityName=".activities.HillfortListActivity">
+
+        <activity android:name=".views.hillfortlist.HillfortListView"
+            android:label="@string/title_activity_hillfort_list"
+            android:launchMode="singleTop">
+        </activity>
+
+        <activity android:name=".views.hillfort.HillfortView"
+            android:label="@string/title_activity_hillfort">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.HillfortListActivity" />
+                android:value=".views.hillfortlist.HillfortListView" />
         </activity>
+
         <activity
-            android:name=".activities.HillfortActivity"
-            android:parentActivityName=".activities.HillfortListActivity">
+            android:name=".views.editlocation.EditLocationView"
+            android:label="@string/title_activity_edit_location">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.HillfortListActivity" />
+                android:value=".views.hillfort.HillfortView" />
         </activity>
-        <activity android:name=".activities.HillfortImageActivity"></activity>
+
+        <activity
+            android:name=".views.map.HillfortMapView"
+            android:label="@string/title_activity_hillfort_maps"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.hillfortlist.HillfortListView" />
+        </activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
-        <activity
-            android:name=".activities.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
-        <activity
-            android:name=".activities.HillfortMapsActivity"
-            android:label="@string/title_activity_hillfort_maps"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
