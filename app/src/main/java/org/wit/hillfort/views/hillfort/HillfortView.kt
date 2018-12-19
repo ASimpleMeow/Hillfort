@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.gms.maps.GoogleMap
 import kotlinx.android.synthetic.main.activity_hillfort.*
@@ -14,7 +15,7 @@ import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.views.BaseView
 
 
-class HillfortView : BaseView(), AnkoLogger {
+class HillfortView : BaseView(), HillfortImageListener, AnkoLogger {
 
   lateinit var presenter: HillfortPresenter
   lateinit var map: GoogleMap
@@ -35,13 +36,21 @@ class HillfortView : BaseView(), AnkoLogger {
     presenter = initPresenter(HillfortPresenter(this)) as HillfortPresenter
 
     chooseImage.setOnClickListener { presenter.doSelectImage() }
+
+    val layoutManager = GridLayoutManager(this,2)
+    hillfortImageGallery.layoutManager = layoutManager
+    presenter.loadHillfortImages()
+  }
+
+  override fun showHillfortImages(images: List<String>) {
+    hillfortImageGallery.adapter = HillfortImageAdapter(images, this)
+    hillfortImageGallery.adapter?.notifyDataSetChanged()
   }
 
   override fun showHillfort(hillfort: HillfortModel) {
     hillfortTitle.setText(hillfort.title)
     description.setText(hillfort.description)
-    Glide.with(this).load(hillfort.image).into(hillfortImage)
-    if (hillfort.image != null) chooseImage.setText(R.string.button_changeImage)
+    showHillfortImages(hillfort.images)
     lat.setText("%.6f".format(hillfort.location.lat))
     lng.setText("%.6f".format(hillfort.location.lng))
   }
@@ -50,6 +59,10 @@ class HillfortView : BaseView(), AnkoLogger {
     menuInflater.inflate(R.menu.menu_hillfort, menu)
     if (presenter.edit) menu.getItem(0).isVisible = true
     return super.onCreateOptionsMenu(menu)
+  }
+
+  override fun onImageClick(image: String) {
+    // TODO navigate to full image view activity
   }
 
   override fun onOptionsItemSelected(item: MenuItem?): Boolean {

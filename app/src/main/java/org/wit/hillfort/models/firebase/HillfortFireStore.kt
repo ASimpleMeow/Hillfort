@@ -45,13 +45,13 @@ class HillfortFireStore(val context: Context) : HillfortStore, AnkoLogger {
     if (foundHillfort != null) {
       foundHillfort.title = hillfort.title
       foundHillfort.description = hillfort.description
-      foundHillfort.image = hillfort.image
+      foundHillfort.images = ArrayList(hillfort.images)
       foundHillfort.visited = hillfort.visited
       foundHillfort.location = hillfort.location
     }
 
     db.child("users").child(userId).child("hillforts").child(hillfort.fbId).setValue(hillfort)
-    if ((hillfort.image.length) > 0 && (hillfort.image[0] != 'h')) {
+    if (hillfort.images.isNotEmpty()) {
       updateImage(hillfort)
     }
   }
@@ -82,13 +82,15 @@ class HillfortFireStore(val context: Context) : HillfortStore, AnkoLogger {
   }
 
   fun updateImage(hillfort: HillfortModel) {
-    if (hillfort.image != "") {
-      val fileName = File(hillfort.image)
+    for (i in 0..hillfort.images.size-1){
+      if (hillfort.images[i] == "" || hillfort.images[i][0] == 'h') continue
+
+      val fileName = File(hillfort.images[i])
       val imageName = fileName.getName()
 
       var imageRef = st.child(userId + '/' + imageName)
       val baos = ByteArrayOutputStream()
-      val bitmap = readImageFromPath(context, hillfort.image)
+      val bitmap = readImageFromPath(context, hillfort.images[i])
 
       bitmap?.let {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
@@ -98,7 +100,7 @@ class HillfortFireStore(val context: Context) : HillfortStore, AnkoLogger {
           println(it.message)
         }.addOnSuccessListener { taskSnapshot ->
           taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener {
-            hillfort.image = it.toString()
+            hillfort.images[i] = it.toString()
             db.child("users").child(userId).child("hillforts").child(hillfort.fbId).setValue(hillfort)
           }
         }

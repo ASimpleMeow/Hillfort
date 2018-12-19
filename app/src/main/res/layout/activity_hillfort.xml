@@ -66,8 +66,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description" />
 
-    <ImageView
-        android:id="@+id/hillfortImage"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hillfortImageGallery"
         android:layout_width="0dp"
         android:layout_height="139dp"
         android:layout_marginStart="8dp"
@@ -89,7 +89,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hillfortImage" />
+        app:layout_constraintTop_toBottomOf="@+id/hillfortImageGallery" />
 
     <TextView
         android:id="@+id/textView"

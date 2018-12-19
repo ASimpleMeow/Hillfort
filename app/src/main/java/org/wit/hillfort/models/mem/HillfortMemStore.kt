@@ -34,7 +34,7 @@ class HillfortMemStore: HillfortStore, AnkoLogger{
     if (foundHillfort != null){
       foundHillfort.title = hillfort.title
       foundHillfort.description = hillfort.description
-      foundHillfort.image = hillfort.image
+      foundHillfort.images = ArrayList(hillfort.images)
       foundHillfort.visited = hillfort.visited
       foundHillfort.location = hillfort.location
       logAll()

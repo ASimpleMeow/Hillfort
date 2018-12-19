@@ -36,7 +36,7 @@ class HillfortMapView : BaseView(), GoogleMap.OnMarkerClickListener {
   override fun showHillfort(hillfort: HillfortModel){
     currentTitle.text = hillfort.title
     currentDescription.text = hillfort.description
-    Glide.with(this).load(hillfort.image).into(imageView)
+    if (hillfort.images.isNotEmpty()) Glide.with(this).load(hillfort.images.first()).into(imageView)
   }
 
   override fun showHillforts(hillforts: List<HillfortModel>) {
