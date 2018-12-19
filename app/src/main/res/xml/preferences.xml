@@ -12,7 +12,7 @@
             android:title="@string/settings_email"
             android:summary="@string/settings_email_summary"/>
 
-        <PreferenceScreen
+        <EditTextPreference
             android:key="pref_user_password"
             android:title="@string/settings_password"
             android:summary="@string/settings_password_summary" />

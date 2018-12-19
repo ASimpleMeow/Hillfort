@@ -12,12 +12,13 @@ import org.wit.hillfort.views.editlocation.EditLocationView
 import org.wit.hillfort.views.map.HillfortMapView
 import org.wit.hillfort.views.hillfort.HillfortView
 import org.wit.hillfort.views.hillfortlist.HillfortListView
+import org.wit.hillfort.views.settings.SettingsView
 
 val IMAGE_REQUEST = 1
 val LOCATION_REQUEST = 2
 
 enum class VIEW {
-  LOCATION, PLACEMARK, MAPS, LIST, LOGIN
+  LOCATION, PLACEMARK, MAPS, LIST, SETTINGS, LOGIN
 }
 
 open class BaseView: AppCompatActivity(), AnkoLogger {
@@ -31,6 +32,7 @@ open class BaseView: AppCompatActivity(), AnkoLogger {
       VIEW.PLACEMARK -> intent = Intent(this, HillfortView::class.java)
       VIEW.MAPS -> intent = Intent(this, HillfortMapView::class.java)
       VIEW.LIST -> intent = Intent(this, HillfortListView::class.java)
+      VIEW.SETTINGS -> intent = Intent(this, SettingsView::class.java)
       VIEW.LOGIN -> intent = Intent(this, LoginView::class.java)
     }
 

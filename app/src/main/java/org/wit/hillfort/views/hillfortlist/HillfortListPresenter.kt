@@ -32,4 +32,8 @@ class HillfortListPresenter(view: HillfortListView): BasePresenter(view) {
       view?.showHillforts(app.hillforts.findAll())
     }
   }
+
+  fun doShowSettings() {
+    view?.navigateTo(VIEW.SETTINGS)
+  }
 }
