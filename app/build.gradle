@@ -72,6 +72,8 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
+    implementation "com.android.support:design:$design_library_version"
+    implementation "com.android.support:support-v4:$support_library_version"
 
     implementation "com.google.firebase:firebase-auth:$firebase_version"
     implementation "com.google.firebase:firebase-database:$firebase_version"
