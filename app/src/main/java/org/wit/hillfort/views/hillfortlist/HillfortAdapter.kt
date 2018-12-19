@@ -31,7 +31,7 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
     fun bind(hillfort: HillfortModel,  listener : HillfortListener) {
       itemView.hillfortTitle.text = hillfort.title
       itemView.description.text = hillfort.description
-      Glide.with(itemView.context).load(hillfort.image).into(itemView.imageIcon)
+      if (hillfort.images.isNotEmpty()) Glide.with(itemView.context).load(hillfort.images.first()).into(itemView.imageIcon)
       itemView.setOnClickListener { listener.onHillfortClick(hillfort) }
     }
   }

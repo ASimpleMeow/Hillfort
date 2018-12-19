@@ -1,6 +1,5 @@
-package org.wit.hillfort.adapters
+package org.wit.hillfort.views.hillfort
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +7,12 @@ import android.widget.ImageView
 import com.squareup.picasso.Picasso
 import org.wit.hillfort.R
 
-/*
-class HillfortImageGalleryAdapter constructor(private val images: List<String>, private val listener: HillfortImageListener)
-  : androidx.recyclerview.widget.RecyclerView.Adapter<HillfortImageGalleryAdapter.ImageHolder>() {
+interface HillfortImageListener{
+  fun onImageClick(image: String)
+}
+
+class HillfortImageAdapter constructor(private val images: List<String>, private val listener: HillfortImageListener)
+  : androidx.recyclerview.widget.RecyclerView.Adapter<HillfortImageAdapter.ImageHolder>() {
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageHolder {
     return ImageHolder(LayoutInflater.from(parent?.context).inflate(R.layout.image_hillfort, parent, false))
@@ -34,4 +36,4 @@ class HillfortImageGalleryAdapter constructor(private val images: List<String>, 
       itemView.setOnClickListener{ listener.onImageClick(image) }
     }
   }
-}*/
+}

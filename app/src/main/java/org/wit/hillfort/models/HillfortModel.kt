@@ -12,9 +12,13 @@ data class HillfortModel(@PrimaryKey(autoGenerate = true) var id: Long = 0,
                           var fbId : String = "",
                           var title: String = "",
                           var description: String = "",
-                          var image: String = "",
+                          @Embedded var images: ArrayList<String> = ArrayList(),
                           var visited: Boolean = false,
-                          @Embedded var location : Location = Location()): Parcelable
+                          @Embedded var location : Location = Location(),
+                          var notes: String = "",
+                          var dayVisited: Int = 1,
+                          var monthVisited: Int = 1,
+                          var yearVisited: Int = 2018): Parcelable
 
 @Parcelize
 data class Location(var lat: Double = 0.0,

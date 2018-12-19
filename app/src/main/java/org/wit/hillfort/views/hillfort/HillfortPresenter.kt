@@ -119,7 +119,7 @@ class HillfortPresenter(view: BaseView): BasePresenter(view) {
   override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
     when (requestCode) {
       IMAGE_REQUEST -> {
-        hillfort.image = data.data.toString()
+        if (!hillfort.images.contains(data.data.toString())) hillfort.images.add(data.data.toString())
         view?.showHillfort(hillfort)
       }
       LOCATION_REQUEST -> {
@@ -138,5 +138,9 @@ class HillfortPresenter(view: BaseView): BasePresenter(view) {
     } else {
       locationUpdate(defaultLocation.lat, defaultLocation.lng)
     }
+  }
+
+  fun loadHillfortImages() {
+    view?.showHillfortImages(hillfort.images)
   }
 }
