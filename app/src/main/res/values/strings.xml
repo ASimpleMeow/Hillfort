@@ -3,6 +3,7 @@
   <string name="title_activity_hillfort_maps">Map of All Hillforts </string>
   <string name="title_activity_maps">Map</string>
   <string name="title_activity_hillfort_list">Hillforts</string>
+  <string name="title_activiy_hillfort_settings">Hillfort Settings</string>
   <string name="title_activity_hillfort">Hillfort</string>
   <string name="title_activity_edit_location">Hillfort</string>
   <string name="title_activity_login"> Signup/Login to Hillfort</string>
@@ -15,6 +16,7 @@
   <string name="menu_deleteHillfort">Delete</string>
   <string name="menu_saveHillfort">Save</string>
   <string name="menu_showMap">Show Map</string>
+  <string name="menu_settings">Settings</string>
   <string name="menu_logout">Logout</string>
 
   <string name="settings_email_summary">Change your login email</string>
