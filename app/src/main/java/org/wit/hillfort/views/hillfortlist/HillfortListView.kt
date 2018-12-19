@@ -1,10 +1,10 @@
 package org.wit.hillfort.views.hillfortlist
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.*
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import org.wit.hillfort.R
 import org.wit.hillfort.models.HillfortModel
@@ -18,6 +18,13 @@ class HillfortListView : BaseView(), HillfortListener {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_hillfort_list)
     init(toolbarMain, false)
+    var drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+    var navView: NavigationView = findViewById(R.id.hillfort_nav_view)
+    navView.setNavigationItemSelectedListener { menuItem ->
+      onOptionsItemSelected(menuItem)
+      drawerLayout.closeDrawers()
+      true
+    }
 
     presenter = initPresenter(HillfortListPresenter(this)) as HillfortListPresenter
 
