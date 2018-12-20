@@ -17,6 +17,7 @@ data class HillfortModel(@PrimaryKey(autoGenerate = true) var id: Long = 0,
                           @Embedded var location : Location = Location(),
                           var notes: String = "",
                           var rating: Float = 0.0f,
+                          var favorite: Boolean = false,
                           var dayVisited: Int = 1,
                           var monthVisited: Int = 1,
                           var yearVisited: Int = 2018): Parcelable
