@@ -33,6 +33,12 @@ class HillfortListPresenter(view: HillfortListView): BasePresenter(view) {
     }
   }
 
+  fun loadHillforts(query: String){
+    async(UI) {
+      view?.showHillforts(app.hillforts.findAll().filter { it.title.contains(query) || it.description.contains(query) })
+    }
+  }
+
   fun doShowSettings() {
     view?.navigateTo(VIEW.SETTINGS)
   }

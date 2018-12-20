@@ -3,6 +3,7 @@ package org.wit.hillfort.views.hillfortlist
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
@@ -50,6 +51,22 @@ class HillfortListView : BaseView(), HillfortListener {
 
   override fun onCreateOptionsMenu(menu: Menu?): Boolean {
     menuInflater.inflate(R.menu.menu_main, menu)
+
+    val searchView: SearchView = menu?.findItem(R.id.item_search)?.actionView as SearchView
+    searchView.queryHint = resources.getString(R.string.hint_searchHillfort)
+    searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+      override fun onQueryTextChange(newText: String): Boolean {
+        presenter.loadHillforts()
+        return false
+      }
+
+      override fun onQueryTextSubmit(query: String): Boolean {
+        if (query.isBlank() || query.isEmpty()) presenter.loadHillforts()
+        else presenter.loadHillforts(query)
+        return false
+      }
+    })
+
     return super.onCreateOptionsMenu(menu)
   }
 
