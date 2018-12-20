@@ -10,6 +10,7 @@
 
   <string name="hint_hillfortTitle">Hillfort Title</string>
   <string name="hint_hillfortDescription">Hillfort Description</string>
+  <string name="hint_hillfortNotes">Additional Notes</string>
 
   <string name="menu_addHillfort">Add</string>
   <string name="menu_cancelHillfort">Cancel</string>
@@ -37,6 +38,8 @@
   <string name="button_location">Set Location</string>
   <string name="button_addHillfort">Add Hillfort</string>
   <string name="button_saveHillfort">Save Hillfort</string>
+
   <string name="label_lat">Lat:</string>
   <string name="label_lng">Lng:</string>
+  <string name="label_visited">Visited:</string>
 </resources>

@@ -2,6 +2,7 @@ package org.wit.hillfort.views.hillfort
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.widget.DatePicker
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
@@ -84,9 +85,15 @@ class HillfortPresenter(view: BaseView): BasePresenter(view) {
     }
   }
 
-  fun doAddOrSave(title: String, description: String) {
+  fun doAddOrSave(title: String, description: String, notes: String, visited: Boolean, datePicker: DatePicker, rating: Float) {
     hillfort.title = title
     hillfort.description = description
+    hillfort.notes = notes
+    hillfort.visited = visited
+    hillfort.dayVisited = datePicker.dayOfMonth
+    hillfort.monthVisited = datePicker.month
+    hillfort.yearVisited = datePicker.year
+    hillfort.rating = rating
     async(UI){
       if (edit) {
         app.hillforts.update(hillfort)
