@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import org.wit.hillfort.R
@@ -19,13 +20,16 @@ class HillfortListView : BaseView(), HillfortListener {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_hillfort_list)
     init(toolbarMain, false)
-    var drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-    var navView: NavigationView = findViewById(R.id.hillfort_nav_view)
+    val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+    val navView: NavigationView = findViewById(R.id.hillfort_nav_view)
     navView.setNavigationItemSelectedListener { menuItem ->
       onOptionsItemSelected(menuItem)
       drawerLayout.closeDrawers()
       true
     }
+
+    val bottomNavView: BottomNavigationView = findViewById(R.id.hillfort_bottom_nav_view)
+    bottomNavView.setOnNavigationItemSelectedListener { menuItem -> onOptionsItemSelected(menuItem) }
 
     presenter = initPresenter(HillfortListPresenter(this)) as HillfortListPresenter
 
