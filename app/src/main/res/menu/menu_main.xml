@@ -15,6 +15,11 @@
         app:showAsAction="never"/>
 
     <item
+        android:id="@+id/item_filter_favorites"
+        android:checkable="true"
+        android:title="@string/menu_filterFavorites" />
+
+    <item
         android:id="@+id/item_settings"
         android:icon="@android:drawable/ic_menu_manage"
         android:title="@string/menu_settings"

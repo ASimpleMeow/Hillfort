@@ -13,6 +13,7 @@ import org.wit.hillfort.views.BaseView
 class HillfortListView : BaseView(), HillfortListener {
 
   lateinit var presenter: HillfortListPresenter
+  private var filterFavorites: Boolean = false
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -34,8 +35,13 @@ class HillfortListView : BaseView(), HillfortListener {
   }
 
   override fun showHillforts(hillforts: List<HillfortModel>) {
-    recyclerView.adapter = HillfortAdapter(hillforts, this)
+    recyclerView.adapter = HillfortAdapter(if (filterFavorites) hillforts.filter { it.favorite } else hillforts, this)
     recyclerView.adapter?.notifyDataSetChanged()
+  }
+
+  override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+    menu?.findItem(R.id.item_filter_favorites)?.isChecked = filterFavorites
+    return super.onPrepareOptionsMenu(menu)
   }
 
   override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -47,6 +53,11 @@ class HillfortListView : BaseView(), HillfortListener {
     when (item?.itemId){
       R.id.item_add -> presenter.doAddHillfort()
       R.id.item_map -> presenter.doShowHillfortsMap()
+      R.id.item_filter_favorites -> {
+        filterFavorites = !item.isChecked
+        item.isChecked = filterFavorites
+        presenter.loadHillforts()
+      }
       R.id.item_settings -> presenter.doShowSettings()
       R.id.item_logout -> presenter.doLogout()
     }
