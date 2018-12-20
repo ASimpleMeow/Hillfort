@@ -10,11 +10,13 @@
 
   <string name="hint_hillfortTitle">Hillfort Title</string>
   <string name="hint_hillfortDescription">Hillfort Description</string>
+  <string name="hint_searchHillfort">Search Hillfort By Title/Description</string>
   <string name="hint_hillfortNotes">Additional Notes</string>
 
   <string name="menu_addHillfort">Add</string>
   <string name="menu_cancelHillfort">Cancel</string>
   <string name="menu_deleteHillfort">Delete</string>
+  <string name="menu_search">Search</string>
   <string name="menu_saveHillfort">Save</string>
   <string name="menu_showMap">Show Map</string>
   <string name="menu_settings">Settings</string>
