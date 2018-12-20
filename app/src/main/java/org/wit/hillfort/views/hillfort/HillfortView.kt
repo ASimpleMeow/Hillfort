@@ -53,6 +53,10 @@ class HillfortView : BaseView(), HillfortImageListener, AnkoLogger {
     showHillfortImages(hillfort.images)
     lat.setText("%.6f".format(hillfort.location.lat))
     lng.setText("%.6f".format(hillfort.location.lng))
+    notes.setText(hillfort.notes)
+    visit.isChecked = hillfort.visited
+    date_visited.updateDate(hillfort.yearVisited, hillfort.monthVisited, hillfort.dayVisited)
+    rating.rating = hillfort.rating
   }
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -69,7 +73,12 @@ class HillfortView : BaseView(), HillfortImageListener, AnkoLogger {
     when (item?.itemId) {
       R.id.item_save -> {
         if (hillfortTitle.text.toString().isEmpty()) toast(R.string.hint_hillfortTitle)
-        else presenter.doAddOrSave(hillfortTitle.text.toString(), description.text.toString())
+        else presenter.doAddOrSave(hillfortTitle.text.toString(),
+            description.text.toString(),
+            notes.text.toString(),
+            visit.isChecked,
+            date_visited,
+            rating.rating)
       }
       R.id.item_delete -> {
         presenter.doDelete()
