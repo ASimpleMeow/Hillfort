@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.card_hillfort.view.*
 import org.wit.hillfort.R
@@ -11,13 +12,14 @@ import org.wit.hillfort.models.HillfortModel
 
 interface HillfortListener {
   fun onHillfortClick(hillfort: HillfortModel)
+  fun onHillfortSwiped(hillfort: HillfortModel)
 }
 
 class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
                                    private val listener: HillfortListener) : androidx.recyclerview.widget.RecyclerView.Adapter<HillfortAdapter.MainHolder>() {
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-    return MainHolder(LayoutInflater.from(parent?.context).inflate(R.layout.card_hillfort, parent, false))
+    return MainHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_hillfort, parent, false))
   }
 
   override fun onBindViewHolder(holder: MainHolder, position: Int) {
@@ -26,6 +28,11 @@ class HillfortAdapter constructor(private var hillforts: List<HillfortModel>,
   }
 
   override fun getItemCount(): Int = hillforts.size
+
+  fun removeItem(position: Int){
+    listener.onHillfortSwiped(hillforts[position])
+    notifyItemRemoved(position)
+  }
 
   class MainHolder constructor(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
