@@ -17,6 +17,12 @@ class HillfortListPresenter(view: HillfortListView): BasePresenter(view) {
     view?.navigateTo(VIEW.PLACEMARK, 0, "hillfort_edit", hillfort)
   }
 
+  fun doDeleteHillfort(hillfort: HillfortModel){
+    async(UI){
+      app.hillforts.delete(hillfort)
+    }
+  }
+
   fun doShowHillfortsMap() {
     view?.navigateTo(VIEW.MAPS)
   }

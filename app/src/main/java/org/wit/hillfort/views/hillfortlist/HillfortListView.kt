@@ -5,17 +5,22 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_hillfort_list.*
 import org.wit.hillfort.R
+import org.wit.hillfort.helpers.RecyclerItemTouchHelper
+import org.wit.hillfort.helpers.RecyclerItemTouchHelperListener
 import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.views.BaseView
 
-class HillfortListView : BaseView(), HillfortListener {
+class HillfortListView : BaseView(), HillfortListener, RecyclerItemTouchHelperListener {
 
   lateinit var presenter: HillfortListPresenter
   private var filterFavorites: Boolean = false
+  lateinit var adapter: HillfortAdapter
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -36,11 +41,15 @@ class HillfortListView : BaseView(), HillfortListener {
 
     val layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
     recyclerView.layoutManager = layoutManager
+    val swipeHelper = RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this, resources.getColor(R.color.colorCardMenu))
+    ItemTouchHelper(swipeHelper).attachToRecyclerView(recyclerView)
+
     presenter.loadHillforts()
   }
 
   override fun showHillforts(hillforts: List<HillfortModel>) {
-    recyclerView.adapter = HillfortAdapter(if (filterFavorites) hillforts.filter { it.favorite } else hillforts, this)
+    adapter = HillfortAdapter(if (filterFavorites) hillforts.filter { it.favorite } else hillforts, this)
+    recyclerView.adapter = adapter
     recyclerView.adapter?.notifyDataSetChanged()
   }
 
@@ -87,6 +96,14 @@ class HillfortListView : BaseView(), HillfortListener {
 
   override fun onHillfortClick(hillfort: HillfortModel) {
     presenter.doEditHillfort(hillfort)
+  }
+
+  override fun onHillfortSwiped(hillfort: HillfortModel) {
+    presenter.doDeleteHillfort(hillfort)
+  }
+
+  override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int, position: Int) {
+    adapter.removeItem(viewHolder.adapterPosition)
   }
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
