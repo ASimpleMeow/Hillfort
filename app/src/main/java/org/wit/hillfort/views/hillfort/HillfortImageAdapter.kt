@@ -7,11 +7,7 @@ import android.widget.ImageView
 import com.squareup.picasso.Picasso
 import org.wit.hillfort.R
 
-interface HillfortImageListener{
-  fun onImageClick(image: String)
-}
-
-class HillfortImageAdapter constructor(private val images: List<String>, private val listener: HillfortImageListener)
+class HillfortImageAdapter constructor(private val images: List<String>)
   : androidx.recyclerview.widget.RecyclerView.Adapter<HillfortImageAdapter.ImageHolder>() {
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageHolder {
@@ -20,20 +16,19 @@ class HillfortImageAdapter constructor(private val images: List<String>, private
 
   override fun onBindViewHolder(holder: ImageHolder, position: Int) {
     val image = images[position]
-    holder.bind(image, listener)
+    holder.bind(image)
   }
 
   override fun getItemCount(): Int = images.size
 
   class ImageHolder constructor(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
 
-    fun bind(image: String, listener: HillfortImageListener){
+    fun bind(image: String){
       var imageView: ImageView = itemView.findViewById(R.id.hillfortImage)
       Picasso.get()
           .load(image)
           .fit()
           .into(imageView)
-      itemView.setOnClickListener{ listener.onImageClick(image) }
     }
   }
 }

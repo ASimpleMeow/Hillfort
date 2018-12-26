@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.widget.ShareActionProvider
+import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.gms.maps.GoogleMap
@@ -15,10 +17,11 @@ import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.views.BaseView
 
 
-class HillfortView : BaseView(), HillfortImageListener, AnkoLogger {
+class HillfortView : BaseView(), AnkoLogger {
 
   lateinit var presenter: HillfortPresenter
   lateinit var map: GoogleMap
+  var shareActionProvider: ShareActionProvider? = null
   var hillfort = HillfortModel()
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +46,7 @@ class HillfortView : BaseView(), HillfortImageListener, AnkoLogger {
   }
 
   override fun showHillfortImages(images: List<String>) {
-    hillfortImageGallery.adapter = HillfortImageAdapter(images, this)
+    hillfortImageGallery.adapter = HillfortImageAdapter(images)
     hillfortImageGallery.adapter?.notifyDataSetChanged()
   }
 
@@ -62,11 +65,10 @@ class HillfortView : BaseView(), HillfortImageListener, AnkoLogger {
   override fun onCreateOptionsMenu(menu: Menu): Boolean {
     menuInflater.inflate(R.menu.menu_hillfort, menu)
     if (presenter.edit) menu.getItem(0).isVisible = true
+    shareActionProvider = MenuItemCompat.getActionProvider(menu.findItem(R.id.item_share)) as ShareActionProvider
+    shareActionProvider?.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME)
+    shareActionProvider?.setShareIntent(presenter.createShareIntent())
     return super.onCreateOptionsMenu(menu)
-  }
-
-  override fun onImageClick(image: String) {
-    // TODO navigate to full image view activity
   }
 
   override fun onOptionsItemSelected(item: MenuItem?): Boolean {

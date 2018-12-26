@@ -23,6 +23,7 @@ import org.wit.hillfort.models.Location
 import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.views.*
 import org.wit.hillfort.views.editlocation.EditLocationView
+import java.util.ArrayList
 
 class HillfortPresenter(view: BaseView): BasePresenter(view) {
 
@@ -149,5 +150,13 @@ class HillfortPresenter(view: BaseView): BasePresenter(view) {
 
   fun loadHillfortImages() {
     view?.showHillfortImages(hillfort.images)
+  }
+
+  fun createShareIntent(): Intent {
+    val text = "Hillfort: ${hillfort.title}, Description: ${hillfort.description}, Location: ${LatLng(hillfort.location.lat, hillfort.location.lng)}"
+    val shareIntent = Intent(Intent.ACTION_SEND)
+    shareIntent.type = "text/plain"
+    shareIntent.putExtra(Intent.EXTRA_TEXT, text)
+    return shareIntent
   }
 }
