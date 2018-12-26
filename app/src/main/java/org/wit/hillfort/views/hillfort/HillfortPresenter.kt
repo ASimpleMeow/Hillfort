@@ -13,11 +13,10 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.async
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
-import org.wit.hillfort.helpers.checkLocationPermissions
-import org.wit.hillfort.helpers.createDefaultLocationRequest
-import org.wit.hillfort.helpers.isPermissionGranted
-import org.wit.hillfort.helpers.showImagePicker
+import org.wit.hillfort.helpers.*
 import org.wit.hillfort.main.MainApp
 import org.wit.hillfort.models.Location
 import org.wit.hillfort.models.HillfortModel
@@ -25,7 +24,7 @@ import org.wit.hillfort.views.*
 import org.wit.hillfort.views.editlocation.EditLocationView
 import java.util.ArrayList
 
-class HillfortPresenter(view: BaseView): BasePresenter(view) {
+class HillfortPresenter(view: BaseView): BasePresenter(view), AnkoLogger {
 
   var map: GoogleMap? = null
   var locationService: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(view)
@@ -120,17 +119,28 @@ class HillfortPresenter(view: BaseView): BasePresenter(view) {
     showImagePicker(view!!, IMAGE_REQUEST)
   }
 
+  fun takeImage(){
+    showCamera(view!!, CAMERA_REQUEST)
+  }
+
   fun doSetLocation() {
     view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", Location(hillfort.location.lat, hillfort.location.lng, hillfort.location.zoom))
   }
 
-  override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+  override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     when (requestCode) {
+      CAMERA_REQUEST -> {
+        if (CAMERA_IMAGE_URI.isNullOrBlank()) return
+        if (!hillfort.images.contains(CAMERA_IMAGE_URI)) hillfort.images.add(CAMERA_IMAGE_URI!!)
+        view?.showHillfort(hillfort)
+      }
       IMAGE_REQUEST -> {
+        if (data == null) return
         if (!hillfort.images.contains(data.data.toString())) hillfort.images.add(data.data.toString())
         view?.showHillfort(hillfort)
       }
       LOCATION_REQUEST -> {
+        if (data == null) return
         val location = data.extras.getParcelable<Location>("location")
         hillfort.location.lat = location.lat
         hillfort.location.lng = location.lng

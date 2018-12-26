@@ -11,10 +11,12 @@ import com.bumptech.glide.Glide
 import com.google.android.gms.maps.GoogleMap
 import kotlinx.android.synthetic.main.activity_hillfort.*
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 import org.wit.hillfort.R
 import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.views.BaseView
+import org.wit.hillfort.views.CAMERA_REQUEST
 
 
 class HillfortView : BaseView(), AnkoLogger {
@@ -39,6 +41,7 @@ class HillfortView : BaseView(), AnkoLogger {
     presenter = initPresenter(HillfortPresenter(this)) as HillfortPresenter
 
     chooseImage.setOnClickListener { presenter.doSelectImage() }
+    chooseCamera.setOnClickListener { presenter.takeImage() }
 
     val layoutManager = GridLayoutManager(this,2)
     hillfortImageGallery.layoutManager = layoutManager
@@ -64,7 +67,7 @@ class HillfortView : BaseView(), AnkoLogger {
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {
     menuInflater.inflate(R.menu.menu_hillfort, menu)
-    if (presenter.edit) menu.getItem(0).isVisible = true
+    if (presenter.edit) menu.getItem(1).isVisible = true
     shareActionProvider = MenuItemCompat.getActionProvider(menu.findItem(R.id.item_share)) as ShareActionProvider
     shareActionProvider?.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME)
     shareActionProvider?.setShareIntent(presenter.createShareIntent())
@@ -94,9 +97,7 @@ class HillfortView : BaseView(), AnkoLogger {
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     super.onActivityResult(requestCode, resultCode, data)
-    if (data != null) {
-      presenter.doActivityResult(requestCode, resultCode, data)
-    }
+    presenter.doActivityResult(requestCode, resultCode, data)
   }
 
   override fun onBackPressed() {

@@ -38,6 +38,7 @@
   <string name="toast_hillfortSaved">Hillfort Saved Successfully</string>
 
   <string name="button_addImage"> Add hillfort Image </string>
+  <string name="button_chooseCamera"> Take Camera Image </string>
   <string name="button_changeImage"> Change hillfort Image </string>
   <string name="button_location">Set Location</string>
   <string name="button_addHillfort">Add Hillfort</string>

@@ -16,6 +16,7 @@ import org.wit.hillfort.views.settings.SettingsView
 
 val IMAGE_REQUEST = 1
 val LOCATION_REQUEST = 2
+val CAMERA_REQUEST = 3
 
 enum class VIEW {
   LOCATION, PLACEMARK, MAPS, LIST, SETTINGS, LOGIN
