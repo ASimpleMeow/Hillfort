@@ -9,6 +9,7 @@ import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.gms.maps.GoogleMap
+import com.r0adkll.slidr.Slidr
 import kotlinx.android.synthetic.main.activity_hillfort.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -46,6 +47,8 @@ class HillfortView : BaseView(), AnkoLogger {
     val layoutManager = GridLayoutManager(this,2)
     hillfortImageGallery.layoutManager = layoutManager
     presenter.loadHillfortImages()
+
+    Slidr.attach(this)
   }
 
   override fun showHillfortImages(images: List<String>) {

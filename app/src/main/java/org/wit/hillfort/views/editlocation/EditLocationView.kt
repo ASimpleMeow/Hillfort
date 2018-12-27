@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
+import com.r0adkll.slidr.Slidr
 import kotlinx.android.synthetic.main.activity_maps.*
 import org.wit.hillfort.R
 import org.wit.hillfort.views.BaseView
@@ -26,6 +27,8 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
       it.setOnMarkerClickListener(this)
       presenter.doConfigureMap(it)
     }
+
+    Slidr.attach(this)
   }
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {

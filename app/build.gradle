@@ -52,6 +52,7 @@ ext {
 
     glide_version = '4.8.0'
     picasso = '2.71828'
+    slidr_version = '2.0.6'
 }
 
 dependencies {
@@ -71,6 +72,8 @@ dependencies {
     implementation "com.google.android.gms:play-services-location:$play_services_location_version"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+
+    implementation "com.r0adkll:slidableactivity:$slidr_version"
 
     implementation "com.android.support:design:$design_library_version"
     implementation "com.android.support:support-v4:$support_library_version"

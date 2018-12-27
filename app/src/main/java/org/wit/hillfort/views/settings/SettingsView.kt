@@ -1,6 +1,7 @@
 package org.wit.hillfort.views.settings
 
 import android.os.Bundle
+import com.r0adkll.slidr.Slidr
 import kotlinx.android.synthetic.main.activity_hillfort_settings.*
 import org.wit.hillfort.R
 import org.wit.hillfort.views.BaseView
@@ -20,6 +21,7 @@ class SettingsView : BaseView() {
     supportFragmentManager.beginTransaction()
         .add(R.id.settings_fragment_container, HillfortSettingsFragment())
         .commit()
+    Slidr.attach(this)
   }
 
   override fun onBackPressed() {

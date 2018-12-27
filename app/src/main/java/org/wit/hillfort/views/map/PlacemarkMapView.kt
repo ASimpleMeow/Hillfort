@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
+import com.r0adkll.slidr.Slidr
 import org.wit.hillfort.R
 
 import kotlinx.android.synthetic.main.activity_hillfort_maps.*
@@ -31,6 +32,7 @@ class HillfortMapView : BaseView(), GoogleMap.OnMarkerClickListener {
       map.setOnMarkerClickListener(this)
       presenter.loadHillforts()
     }
+    Slidr.attach(this)
   }
 
   override fun showHillfort(hillfort: HillfortModel){
