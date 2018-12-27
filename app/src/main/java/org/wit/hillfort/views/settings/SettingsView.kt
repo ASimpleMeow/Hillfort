@@ -23,6 +23,6 @@ class SettingsView : BaseView() {
   }
 
   override fun onBackPressed() {
-    presenter
+    presenter.doCancel()
   }
 }

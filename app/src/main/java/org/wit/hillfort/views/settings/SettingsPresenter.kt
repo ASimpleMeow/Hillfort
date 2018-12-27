@@ -20,4 +20,8 @@ class SettingsPresenter(view: BaseView) : BasePresenter(view) {
       sharedPrefs.edit().putInt("pref_stats_visited", visited).putInt("pref_stats_total", total).apply()
     }
   }
+  
+  fun doCancel(){
+    view!!.finish()
+  }
 }

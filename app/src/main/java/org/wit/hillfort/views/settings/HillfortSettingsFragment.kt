@@ -3,6 +3,7 @@ package org.wit.hillfort.views.settings
 import android.os.Bundle
 import android.widget.Toast
 import androidx.preference.PreferenceFragmentCompat
+import com.google.firebase.auth.FirebaseAuth
 import org.wit.hillfort.R
 
 class HillfortSettingsFragment: PreferenceFragmentCompat() {
@@ -21,12 +22,22 @@ class HillfortSettingsFragment: PreferenceFragmentCompat() {
   }
 
   private fun changeUserEmail(newValue: Any): Boolean{
-    Toast.makeText(context, "TO DO: Implement change user email", Toast.LENGTH_LONG).show()
+    val currentUser = FirebaseAuth.getInstance().currentUser
+    currentUser?.updateEmail(newValue as String)?.addOnCompleteListener { task ->
+      if (task.isSuccessful){
+        Toast.makeText(context, "User Email Updated", Toast.LENGTH_LONG).show()
+      }
+    }
     return false
   }
 
   private fun changeUserPassword(newValue: Any): Boolean{
-    Toast.makeText(context, "DO TO: Implement change user password", Toast.LENGTH_LONG).show()
+    val currentUser = FirebaseAuth.getInstance().currentUser
+    currentUser?.updatePassword(newValue as String)?.addOnCompleteListener { task ->
+      if (task.isSuccessful){
+        Toast.makeText(context, "User Password Updated", Toast.LENGTH_LONG).show()
+      }
+    }
     return false
   }
 }
