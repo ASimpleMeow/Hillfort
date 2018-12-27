@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.wit.hillfort.views.hillfort.HillfortView">
+
+  <com.google.android.material.appbar.AppBarLayout
+      android:id="@+id/appBarLayout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorAccent"
+      android:fitsSystemWindows="true"
+      app:elevation="0dip"
+      app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@color/colorPrimary" />
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <androidx.core.widget.NestedScrollView
+      android:layout_width="584dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+      <EditText
+          android:id="@+id/hillfortTitle"
+          android:layout_width="400dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginEnd="40dp"
+          android:ems="10"
+          android:hint="@string/hint_hillfortTitle"
+          android:inputType="text"
+          app:layout_constraintEnd_toStartOf="@+id/textView2"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <EditText
+          android:id="@+id/description"
+          android:layout_width="400dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="4dp"
+          android:layout_marginEnd="40dp"
+          android:ems="10"
+          android:hint="@string/hint_hillfortDescription"
+          android:inputType="textPersonName"
+          app:layout_constraintEnd_toStartOf="@+id/textView2"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/hillfortTitle" />
+
+      <EditText
+          android:id="@+id/notes"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="4dp"
+          android:layout_marginEnd="8dp"
+          android:ems="10"
+          android:hint="@string/hint_hillfortNotes"
+          android:inputType="textPersonName"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/description" />
+
+      <TextView
+          android:id="@+id/visited_label"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginStart="250dp"
+          android:layout_marginEnd="8dp"
+          android:text="@string/label_visited"
+          android:textSize="18sp"
+          app:layout_constraintBottom_toTopOf="@+id/date_visited"
+          app:layout_constraintEnd_toStartOf="@+id/visit"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/notes" />
+
+      <CheckBox
+          android:id="@+id/visit"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="200dp"
+          app:layout_constraintBottom_toTopOf="@+id/date_visited"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/visited_label"
+          app:layout_constraintTop_toBottomOf="@+id/notes" />
+
+      <DatePicker
+          android:id="@+id/date_visited"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp"
+          android:calendarViewShown="false"
+          android:datePickerMode="spinner"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/visit" />
+
+      <RatingBar
+          android:id="@+id/rating"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/date_visited" />
+
+      <Button
+          android:id="@+id/chooseImage"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="4dp"
+          android:text="@string/button_addImage"
+          app:layout_constraintEnd_toStartOf="@+id/chooseCamera"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/rating" />
+
+      <Button
+          android:id="@+id/chooseCamera"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="4dp"
+          android:layout_marginEnd="8dp"
+          android:text="@string/button_chooseCamera"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/chooseImage"
+          app:layout_constraintTop_toBottomOf="@+id/rating" />
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/hillfortImageGallery"
+          android:layout_width="0dp"
+          android:layout_height="139dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/chooseImage"
+          app:srcCompat="@drawable/ic_launcher_background" />
+
+      <com.google.android.gms.maps.MapView
+          android:id="@+id/mapView"
+          android:layout_width="0dp"
+          android:layout_height="200dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/hillfortImageGallery" />
+
+      <TextView
+          android:id="@+id/textView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="20dp"
+          android:text="@string/label_lat"
+          app:layout_constraintEnd_toStartOf="@+id/lat"
+          tools:layout_editor_absoluteY="20dp" />
+
+      <TextView
+          android:id="@+id/textView2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="20dp"
+          android:text="@string/label_lng"
+          app:layout_constraintEnd_toStartOf="@+id/lng"
+          tools:layout_editor_absoluteY="47dp" />
+
+      <TextView
+          android:id="@+id/lat"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="8dp"
+          android:text="00.000000"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/lng"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="8dp"
+          android:text="00.000000"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/lat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
