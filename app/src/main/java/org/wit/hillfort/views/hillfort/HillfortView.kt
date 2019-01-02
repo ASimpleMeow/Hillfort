@@ -7,25 +7,20 @@ import android.view.MenuItem
 import androidx.appcompat.widget.ShareActionProvider
 import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import com.bumptech.glide.Glide
 import com.google.android.gms.maps.GoogleMap
 import com.r0adkll.slidr.Slidr
 import kotlinx.android.synthetic.main.activity_hillfort.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 import org.wit.hillfort.R
 import org.wit.hillfort.models.HillfortModel
 import org.wit.hillfort.views.BaseView
-import org.wit.hillfort.views.CAMERA_REQUEST
-
 
 class HillfortView : BaseView(), AnkoLogger {
 
   lateinit var presenter: HillfortPresenter
   lateinit var map: GoogleMap
   var shareActionProvider: ShareActionProvider? = null
-  var hillfort = HillfortModel()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
