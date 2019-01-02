@@ -50,8 +50,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
+            android:layout_marginEnd="4dp"
             android:text="@string/label_lat"
             app:layout_constraintBaseline_toBaselineOf="@+id/lat"
+            app:layout_constraintEnd_toStartOf="@+id/lat"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -59,8 +61,10 @@
             android:layout_width="32dp"
             android:layout_height="19dp"
             android:layout_marginStart="72dp"
+            android:layout_marginEnd="4dp"
             android:text="@string/label_lng"
             app:layout_constraintBaseline_toBaselineOf="@+id/lat"
+            app:layout_constraintEnd_toStartOf="@+id/lng"
             app:layout_constraintStart_toEndOf="@+id/lat" />
 
         <TextView

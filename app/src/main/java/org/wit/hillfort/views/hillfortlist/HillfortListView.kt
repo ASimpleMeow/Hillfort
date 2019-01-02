@@ -100,6 +100,7 @@ class HillfortListView : BaseView(), HillfortListener, RecyclerItemTouchHelperLi
 
   override fun onHillfortSwiped(hillfort: HillfortModel) {
     presenter.doDeleteHillfort(hillfort)
+    presenter.loadHillforts()
   }
 
   override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int, position: Int) {
